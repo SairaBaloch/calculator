@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)file:///C:/Users/SHABAN%20ALI%20SHAIKH/Desktop/Saira%20baloch/s.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&amp;family=Roboto:wght@100&amp;display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(50deg, black, #3b89c5);
+        }
+
+        .calculator {
+            border: 4px solid white;
+            padding: 40px;
+            border-radius: 12px;
+            background: transparent;
+            box-shadow: 0px 5px 4px rgba(113, 115, 119, 0.5);
+        }
+
+        input {
+            width: 320px;
+            border: none;
+            padding: 24px;
+            margin: 10px;
+            box-shadow: 0px 3px 15px rgba(84, 84, 84, 0.1);
+            font-size: 40px;
+            text-align: right;
+        }
+
+        input::placeholder {
+            color: #ffffff;
+        }
+
+        button {
+            border: none;
+            width: 60px;
+            height: 60px;
+            margin: 10px;
+            box-shadow: -8px -8px -8px rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            color: black;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .equal {
+            background: orange;
+        }
+
+        .operator {
+            color: green;
+            background: black;
+        }
+
+        .ac {
+            background: black;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <input type="text" placeholder="0" id="inputbox">
+        <div>
+            <button class="ac">AC</button>
+            <button class="operator">DEL</button>
+            <button class="operator">/</button>
+            <button class="operator">%</button>
+        </div>
+        <div>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button class="operator">*</button>
+        </div>
+        <div>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button class="operator">-</button>
+        </div>
+        <div>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button class="operator">+</button>
+        </div>
+        <div>
+            <button>00</button>
+            <button>0</button>
+            <button>.</button>
+            <button class="equal">=</button>
+        </div>
+    </div>
+
+    <script>
+        let input = document.getElementById("inputbox");
+        let buttons = document.querySelectorAll("button");
+
+        let string = '';
+
+        buttons.forEach(button => {
+            button.addEventListener("click", (e) => {
+                if (e.target.innerHTML === "=") {
+                    string = eval(string);
+                    input.value = string;
+                } else if (e.target.innerHTML === "AC") {
+                    string = "";
+                    input.value = string;
+                } else if (e.target.innerHTML === "DEL") {
+                    string = string.slice(0, -1);
+                    input.value = string;
+                } else {
+                    string += e.target.innerHTML;
+                    input.value = string;
+                }
+            });
+        });
+    </script>
+
+
+</body></html>
